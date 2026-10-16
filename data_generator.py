@@ -144,7 +144,7 @@ def load_data_to_dwh():
     print("Завантаження reviews...")
     df_reviews.to_sql('reviews', engine, schema='raw', if_exists='replace', index=False)
     
-    print("Успіх! Усі дані (включно з reviews) успішно завантажені у схему 'raw' бази даних!")
+    print("Успіх! Усі дані успішно завантажені у схему 'raw' бази даних!")
 
 if __name__ == "__main__":
     load_data_to_dwh()
