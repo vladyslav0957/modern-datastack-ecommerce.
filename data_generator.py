@@ -14,9 +14,7 @@ random.seed(42)
 os.makedirs('data_lake', exist_ok=True)
 print("Починаємо генерацію даних для онлайн-кінотеатру...")
 
-# =====================================
 # 1. ТАБЛИЦІ ВИМІРІВ (DIMENSIONS)
-# =====================================
 
 def generate_directors():
     print("Генерація режисерів...")
@@ -64,9 +62,7 @@ def generate_subscribers(n):
     df = pd.concat([df, duplicates], ignore_index=True)
     return df
 
-# =====================================
 # 2. ТАБЛИЦІ ФАКТІВ (FACTS)
-# =====================================
 
 def generate_views(n, subscriber_ids, movie_ids):
     print(f"Генерація {n} переглядів...")
@@ -81,7 +77,7 @@ def generate_views(n, subscriber_ids, movie_ids):
         })
     return pd.DataFrame(data)
 
-# Таблиця reviews за вимогами методички (пункт 2 завдань ЛР №1)
+# Таблиця reviews
 def generate_reviews(n, subscriber_ids, movie_ids):
     print(f"Генерація {n} відгуків (reviews)...")
     data = []
@@ -90,16 +86,14 @@ def generate_reviews(n, subscriber_ids, movie_ids):
         comment = fake.sentence(nb_words=8) if random.random() > 0.2 else None
         data.append({
             'review_id': fake.uuid4(),
-            'product_id': random.choice(movie_ids),      # product_id (відповідно до методички)
-            'user_id': random.choice(subscriber_ids),     # user_id (відповідно до методички)
+            'product_id': random.choice(movie_ids),      # product_id
+            'user_id': random.choice(subscriber_ids),     # user_id
             'rating': random.randint(1, 5),               # rating від 1 до 5
             'comment': comment                            # 20% NULL
         })
     return pd.DataFrame(data)
 
-# =====================================
 # 3. ОРКЕСТРАЦІЯ ТА ЗБЕРЕЖЕННЯ У DWH
-# =====================================
 
 df_directors = generate_directors()
 df_movies = generate_movies(50, df_directors['director_id'].tolist())
