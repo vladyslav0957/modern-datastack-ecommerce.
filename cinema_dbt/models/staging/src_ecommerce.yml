@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw_ecommerce
+    schema: raw
+    tables:
+      - name: directors
+      - name: movies
+      - name: subscribers
+      - name: views
+      - name: ratings
