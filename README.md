@@ -57,4 +57,5 @@ raw аналітичного сховища (DWH) без трансформац�
 
 
 Результат виконання лабораторної роботи №3:
-<img width="1096" height="688" alt="image" src="https://github.com/user-attachments/assets/88610168-ceb0-4a94-b5b7-2fd597553392" />
+<img width="1917" height="912" alt="image" src="https://github.com/user-attachments/assets/2e8ac1aa-d7b7-4874-9e69-6b9e3a8cc53b" />
+
