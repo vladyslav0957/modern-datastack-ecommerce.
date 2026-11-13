@@ -9,3 +9,4 @@ sources:
       - name: subscribers
       - name: views
       - name: ratings
+      - name: reviews

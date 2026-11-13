@@ -1,11 +1,12 @@
 with source as (
-    select * from {{ source('raw_ecommerce', 'ratings') }}
+    select * from {{ source('raw_ecommerce', 'reviews') }}
 )
+
 select
-    rating_id as review_id,
-    subscriber_id,
-    movie_id,
-    score as rating,
+    review_id,
+    user_id as subscriber_id,
+    product_id as movie_id,
+    rating,
     coalesce(comment, 'Без коментаря') as comment,
-    cast(rating_date as timestamp) as review_at
+    current_timestamp as review_at
 from source

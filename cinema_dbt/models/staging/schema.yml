@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_subscribers
+    columns:
+      - name: subscriber_id
+        tests:
+          - unique
+          - not_null

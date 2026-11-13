@@ -6,3 +6,13 @@ data_lake/
 cinema_dbt/target/
 cinema_dbt/dbt_packages/
 cinema_dbt/logs/
+airflow/airflow.cfg
+airflow/airflow.db
+airflow/logs/
+airflow/simple_auth_manager_passwords.json.generated
+cinema_dbt/profiles.yml
+cinema_dbt/.user.yml
+logs/
+wave.json
+__pycache__/
+*.pyc

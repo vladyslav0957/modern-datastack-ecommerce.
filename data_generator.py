@@ -116,7 +116,7 @@ print("Файли успішно збережено у папці /data_lake")
 
 # Підключення та завантаження у PostgreSQL
 DB_URL = "postgresql+psycopg2://admin:adminpassword@localhost:5432/cinema_dwh"
-engine = create_engine(DB_URL)
+engine = create_engine('postgresql://postgres:postgres@localhost:5432/cinema_dwh')
 
 def load_data_to_dwh():
     with engine.connect() as conn:
