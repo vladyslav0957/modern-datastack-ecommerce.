@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_views
+    description: "Таблиця фактів, що містить історію всіх переглядів фільмів з прив'язкою до підписників."
+    columns:
+      - name: view_id
+        description: "Унікальний ідентифікатор перегляду"
+        tests:
+          - unique
+          - not_null
+      - name: subscriber_id
+        description: "Ідентифікатор підписника (зовнішній ключ)"
+      - name: view_at
+        description: "Дата та час перегляду фільму"
