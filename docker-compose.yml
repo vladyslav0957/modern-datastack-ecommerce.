@@ -3,13 +3,21 @@ version: '3.8'
 services:
   dwh_postgres:
     image: postgres:15
-    container_name: cinema_dwh_postgres
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: adminpassword
-      POSTGRES_DB: cinema_dwh
+      POSTGRES_DB: ecommerce_dwh
     ports:
       - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  metabase:
+    image: metabase/metabase:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - dwh_postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
 
